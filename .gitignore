@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# Runtime data
+data/instances/
+data/users/
+
+# Models
+data/common/models/
+*.gguf
+*.bin
+*.safetensors
+*.onnx
+
+# Runtime
+logs/
+cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+.qtcreator

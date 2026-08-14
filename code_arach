@@ -1,0 +1,187 @@
+Nolumi/
+├── README.md
+├── LICENSE
+├── requirements.txt
+├── pyproject.toml
+├── main.py
+│
+├── qml/
+│   ├── Main.qml
+│   │
+│   ├── pages/
+│   │   ├── LoginPage.qml
+│   │   ├── CreateCompanionPage.qml
+│   │   ├── ChatPage.qml
+│   │   └── SettingsPage.qml
+│   │
+│   ├── components/
+│   │   ├── Avatar.qml
+│   │   ├── VoiceWave.qml
+│   │   ├── RoundButton.qml
+│   │   └── LoadingIndicator.qml
+│   │
+│   └── styles/
+│       └── Theme.qml
+│
+├── nolumi/
+│   ├── __init__.py
+│   │
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── application.py
+│   │   └── app_context.py
+│   │
+│   ├── core/
+│   │   ├── __init__.py
+│   │   │
+│   │   ├── conversation/
+│   │   │   ├── __init__.py
+│   │   │   ├── conversation_manager.py
+│   │   │   ├── conversation_state.py
+│   │   │   ├── input_pipeline.py
+│   │   │   └── output_pipeline.py
+│   │   │
+│   │   ├── instance/
+│   │   │   ├── __init__.py
+│   │   │   ├── instance.py
+│   │   │   ├── instance_manager.py
+│   │   │   ├── instance_config.py
+│   │   │   └── instance_factory.py
+│   │   │
+│   │   ├── resource/
+│   │   │   ├── __init__.py
+│   │   │   ├── resource_resolver.py
+│   │   │   ├── resource_provider.py
+│   │   │   ├── local_resource_provider.py
+│   │   │   └── cloud_resource_provider.py
+│   │   │
+│   │   ├── plugin/
+│   │   │   ├── __init__.py
+│   │   │   ├── plugin_manager.py
+│   │   │   ├── plugin_loader.py
+│   │   │   └── plugin_registry.py
+│   │   │
+│   │   ├── memory/
+│   │   │   ├── __init__.py
+│   │   │   ├── memory_manager.py
+│   │   │   ├── memory_store.py
+│   │   │   └── memory_context_builder.py
+│   │   │
+│   │   ├── persona/
+│   │   │   ├── __init__.py
+│   │   │   ├── persona_manager.py
+│   │   │   └── persona_model.py
+│   │   │
+│   │   └── hardware/
+│   │   |    ├── __init__.py
+│   │   |    └── hardware_detector.py
+|   |   |
+│   │   └── runtime/
+│   │          ├── __init__.py
+│   │          ├── runtime_manager.py
+│   │          ├── runtime_info.py
+│   │          └── runtime_detector.py
+│   ├── interfaces/
+│   │   ├── __init__.py
+│   │   ├── vad.py
+│   │   ├── asr.py
+│   │   ├── llm.py
+│   │   ├── tts.py
+│   │   ├── audio_input.py
+│   │   ├── audio_output.py
+│   │   ├── resource.py
+│   │   └── memory.py
+│   │
+│   ├── audio/
+│   │   ├── __init__.py
+│   │   ├── audio_capture.py
+│   │   ├── audio_player.py
+│   │   ├── audio_format.py
+│   │   └── audio_buffer.py
+│   │
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── conversation_message.py
+│   │   ├── voice_profile.py
+│   │   └── model_descriptor.py
+│   │
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── settings_service.py
+│   │   ├── model_service.py
+│   │   └── voice_service.py
+│   │
+│   └── utils/
+│       ├── __init__.py
+│       ├── paths.py
+│       ├── logger.py
+│       └── json_utils.py
+│
+├── plugins/
+│   ├── vad/
+│   │   └── silero_vad/
+│   │       ├── plugin.py
+│   │       └── manifest.json
+│   │       └── requirements.txt
+│   ├── asr/
+│   │   └── qwen3_asr/
+│   │       ├── plugin.py
+│   │       └── manifest.json
+│   │       └── requirements.txt
+│   ├── llm/
+│   │   └── qwen/
+│   │       ├── plugin.py
+│   │       └── manifest.json
+│   │         └── requirements.txt
+│   └── tts/
+│       └── qwen3_tts/
+│           ├── plugin.py
+│           └── manifest.json
+│           └── requirements.txt
+├── data/
+│   ├── common/
+│   │   ├── models/
+│   │   │   ├── asr/
+│   │   │   ├── llm/
+│   │   │   ├── tts/
+│   │   │   └── vad/
+│   │   │
+│   │   ├── voices/
+│   │   ├── persona/
+│   │   └── config/
+│   │
+│   ├── users/
+│   │
+│   └── instances/
+│       ├── nolumi-001/
+│       │   ├── instance.json
+│       │   ├── avatar/
+│       │   ├── models/
+│       │   │   ├── asr/
+│       │   │   ├── llm/
+│       │   │   ├── tts/
+│       │   │   └── vad/
+│       │   ├── voices/
+│       │   ├── memory/
+│       │   │   └── memory.db
+│       │   ├── persona/
+│       │   │   └── persona.json
+│       │   └── config/
+│       │       └── settings.json
+│       │
+│       └── nolumi-002/
+│
+├── config/
+│   ├── app.json
+│   └── logging.json
+│
+├── scripts/
+│   ├── download_models.py
+│   ├── create_instance.py
+│   └── check_environment.py
+│
+└── tests/
+    ├── test_instance_manager.py
+    ├── test_resource_resolver.py
+    ├── test_plugin_manager.py
+    └── test_conversation_manager.py 
