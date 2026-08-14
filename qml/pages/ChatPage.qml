@@ -234,44 +234,43 @@ Page {
 
                 Avatar {
                     id: userAvatarItem
-
                     width: 100
                     height: 100
-
                     anchors.horizontalCenter: parent.horizontalCenter
-
                     source: root.userAvatar
                     fallbackText: "我"
-
-                    active: root.conversationState === ChatPage.Listening
+                    active: InputPipeline.speechActive
                 }
 
                 Button {
                     id: talkButton
-
                     width: 72
                     height: 72
-
                     anchors.horizontalCenter: parent.horizontalCenter
-
                     contentItem: Text {
-                        text: root.conversationState === ChatPage.Listening ? "■" : "🎙"
-
+                        // text: root.conversationState === ChatPage.Listening ? "■" : "🎙"
+                        text: AudioCapture.running ? "■" : "🎙"
                         color: "#FFFFFF"
-
                         font.pixelSize: 25
-
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                     }
 
                     background: Rectangle {
+                        // radius: width / 2
+
+                        // color: root.conversationState === ChatPage.Listening ? "#444444" : "#202020"
+
+                        // scale: talkButton.pressed ? 0.94 : 1.0
+
+                        // Behavior on scale {
+                        //     NumberAnimation {
+                        //         duration: 90
+                        //     }
+                        // }
                         radius: width / 2
-
-                        color: root.conversationState === ChatPage.Listening ? "#444444" : "#202020"
-
+                        color: AudioCapture.running ? "#444444" : "#202020"
                         scale: talkButton.pressed ? 0.94 : 1.0
-
                         Behavior on scale {
                             NumberAnimation {
                                 duration: 90
@@ -285,26 +284,58 @@ Page {
                         // 后面接 Python：
                         // ConversationManager.startListening()
                         // ConversationManager.stopListening()
-                        if (root.conversationState === ChatPage.Listening) {
+                        // if (root.conversationState === ChatPage.Listening) {
 
-                            root.conversationState = ChatPage.Thinking
+                        //     root.conversationState = ChatPage.Thinking
+                        // } else {
+
+                        //     root.conversationState = ChatPage.Listening
+                        // }
+                        if (AudioCapture.running) {
+                            InputPipeline.stop()
                         } else {
-
-                            root.conversationState = ChatPage.Listening
+                            InputPipeline.start()
                         }
                     }
+                }
+                Label {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    visible: AudioCapture.running
+                    text: "Volume: " + AudioCapture.volume.toFixed(3)
+                    color: "#999999"
+                    font.pixelSize: 12
                 }
 
                 Label {
                     anchors.horizontalCenter: parent.horizontalCenter
-
-                    text: root.conversationState === ChatPage.Listening ? "我在听" : "点击开始说话"
-
+                    text: {
+                        if (!AudioCapture.running) {
+                            return "点击开启麦克风"
+                        }
+                        if (InputPipeline.speechActive) {
+                            return "正在听你说"
+                        }
+                        return "我在听"
+                    }
                     color: "#999999"
-
                     font.pixelSize: 13
                 }
             }
+        }
+    }
+
+    Connections {
+        target: InputPipeline
+        function onSpeechStarted() {
+            console.log("Nolumi: speech started")
+            root.conversationState = ChatPage.Listening
+        }
+        function onSpeechEnded() {
+            console.log("Nolumi: speech ended")
+            root.conversationState = ChatPage.Idle
+        }
+        function onErrorOccurred(message) {
+            console.log("InputPipeline error:", message)
         }
     }
 }

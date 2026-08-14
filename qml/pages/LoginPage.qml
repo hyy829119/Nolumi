@@ -5,21 +5,15 @@ import QtQuick.Layouts
 
 Page {
     id: root
-
     signal loginSuccess
-
     background: Rectangle {
         color: "#F7F7F8"
     }
-
     ColumnLayout {
         width: Math.min(parent.width - 48, 360)
-
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-
         spacing: 18
-
         Item {
             Layout.fillWidth: true
             Layout.preferredHeight: 92
