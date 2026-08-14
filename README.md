@@ -1,38 +1,45 @@
 # Nolumi
-Nolumi — A local-first AI companion built with QML and Python. Private, offline, and designed for natural voice conversations.
 
-# Nolumi
+**English | [简体中文](#简体中文)**
 
 Nolumi is a local-first AI companion designed for natural, private, and emotionally aware voice conversations.
 
-It runs locally on your device, combining speech recognition, local language models, text-to-speech, memory, and a lightweight QML interface — without relying on cloud-based AI services for everyday conversations.
+It runs locally on your device, combining speech recognition, local language models, text-to-speech, memory, and a lightweight QML interface.
 
 > Talk freely. Stay private. No tokens required.
 
-## Status
+---
 
-🚧 Nolumi is currently in early development.
+# 简体中文
 
-Planned core features:
+Nolumi 是一个本地优先的 AI 陪伴项目，专注于自然、私密、低负担的语音交流体验。
 
-- Fully local and offline AI inference
-- Real-time voice conversations
-- Local speech recognition (ASR)
-- Local large language model (LLM)
-- Natural text-to-speech (TTS)
-- Multiple voice profiles
-- Local long-term memory
-- Interruption and natural turn-taking
-- QML + Python 3 architecture
-- Plugin-based AI runtime
-- Cross-platform desktop support
+Nolumi 的核心能力全部运行在本地设备，包括实时语音识别、本地大语言模型、语音合成、长期记忆以及 QML 图形界面。
 
-## Philosophy
+日常对话无需依赖云端 AI 服务，也不会产生持续的 Token 消耗。
 
-Nolumi is not designed to diagnose or replace professional mental health services.
+> 想说的时候，我在。
 
-It is simply an AI companion that listens, remembers, talks with you, and is there when you want someone to talk to.
+## 项目目标
 
-## License
+- 全本地 AI 推理
+- 实时语音对话
+- 本地语音识别（ASR）
+- 本地大语言模型（LLM）
+- 本地语音合成（TTS）
+- 男声 / 女声等多种声音
+- 本地长期记忆
+- 支持自然打断和对话轮次判断
+- QML + Python 3
+- 插件化 AI Runtime
+- 跨平台桌面支持
 
-To be determined.
+## 项目定位
+
+Nolumi 不是心理诊断工具，也不替代专业心理健康服务。
+
+它只是一个愿意听你说话、记得你，并在你想说话的时候陪你聊一会儿的本地 AI 伙伴。
+
+## 当前状态
+
+🚧 项目目前处于早期开发阶段。
